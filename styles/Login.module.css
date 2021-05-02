@@ -1,0 +1,94 @@
+.root {
+    height: 100vh;
+    background: #3B7FBA;
+    background-image: url('/urn_aaid_sc_US_a141ddbb-e6d8-4d25-9d43-63f219deef39.png');
+}
+
+.logoPaper {
+    position: absolute;
+    right: 100px;
+    top: 30px;
+}
+
+.loginRow {
+    position: absolute;
+    top: 20%;
+    left: 120px;
+    width: 520px;
+    min-height: 120px;
+}
+
+.headlineText {
+    position: relative;
+}
+
+.underline {
+    margin: auto;
+    /* position: absolute; */
+    border-bottom: 5px solid white;
+    width: 80px;
+    /* left: 190px; */
+}
+
+.headlineText h1 {
+    color: white;
+    font-size: 55px;
+}
+
+.tagline {
+    width: 80%;
+    margin: 3em auto;
+}
+
+.tagline p {
+    color: white;
+    font-weight: 200;
+    font-size: 22px;
+    text-align: center;
+}
+
+.inputIconWrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputIcon {
+    border-bottom: 1px solid #ddd;
+    flex: 1;
+    padding: 20px 0px;
+
+}
+
+.inputWithIcon {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 25px;
+    color: white;
+    width: 100%;
+    position: relative;
+    padding: 20px 20px;
+}
+
+.inputWithIcon:focus {
+    outline: none;
+}
+
+.inputWithIcon::placeholder {
+    color: white;
+    font-size: 25px;
+    /* padding-left: 35px; */
+}
+
+.forgetPass{
+    color: white;
+    text-decoration: none;
+}
+
+.confirmButton{
+    width: 100%;
+    background: #AFE47C;
+    border: none;
+    height: 74px;
+    border-radius: 100px;
+}

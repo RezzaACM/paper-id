@@ -1,0 +1,119 @@
+.menuFinance {
+    display: flex;
+    margin: 10em 0 0 0;
+    border-bottom: 1px solid lightblue;
+    height: 50px;
+}
+
+.menuFinance a {
+    margin: 0 2em;
+    color: #3F5468;
+    text-decoration: none;
+}
+
+.activeMenu {
+    border-bottom: 4px solid #519AD7 !important;
+    padding: 0 0 24px 0 !important;
+}
+
+.content {
+    margin: 2em 0 0 0;
+}
+
+.content h3 {
+    color: #815A6C;
+    font-size: 24px;
+}
+
+.search {
+    width: 330px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: .8em 2em;
+}
+
+.addButton {
+    width: 220px;
+    border-radius: 50px;
+    height: 40px;
+    background: #519AD7;
+    color: white;
+    border: none;
+}
+
+.subSearch {
+    border: 1px solid #519AD7;
+    width: 420px;
+    font-weight: 300;
+}
+
+.subSearch:focus {
+    outline: none;
+}
+
+.myDialog {
+    min-width: 550px !important;
+    /* padding: 1em !important; */
+}
+
+.labelFinance {
+    padding: .2em 1em;
+    background: #F2F8FC;
+    color: #B3D4ED;
+    font-size: 12px;
+    text-transform: lowercase;
+}
+
+.buttonSave {
+    width: 134px;
+    height: 41px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50px;
+    background: #A5CE5D;
+    color: white;
+}
+
+.buttonCancel {
+    border: 1px solid #C0CAD0;
+    height: 41px;
+    width: 134px;
+    border-radius: 50px;
+    background: transparent;
+}
+
+.myDialogDelete {
+    min-width: 395px !important;
+    min-height: 385px !important;
+    background: #3B98D4 !important;
+}
+
+.deleteAction {
+    position: relative;
+}
+
+.buttonDelete {
+    background: none !important;
+    border: 1px solid #C0CAD0;
+}
+
+.buttonDeleteCancel {
+    background: #A5CE5D !important;
+    color: white !important;
+}
+
+.deleteSure {
+    color: white;
+    margin: 1em 0 15em 0;
+}
+
+.deleteSure h1{
+    font-size: 16px;
+    text-align: center;
+}
+
+.deleteSure p{
+    font-weight: 300;
+}

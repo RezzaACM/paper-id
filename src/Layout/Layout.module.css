@@ -1,0 +1,82 @@
+.wrapper {
+    display: flex;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.sidebar {
+    width: 15%;
+    background: #569AD3;
+}
+
+.main {
+    width: 85%;
+    padding: 2em 3em;
+}
+
+.sidebarContent {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 1.5em;
+}
+
+.logoSidebar {
+    width: 180px;
+}
+
+.logoSidebar img {
+    width: 100%;
+}
+
+.sidebarMenu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+}
+
+.menu {
+    display: flex;
+    /* line-height: 1; */
+    margin: .5em 0;
+    color: white;
+    text-decoration: none;
+}
+
+.menu img {
+    margin-right: 10px;
+}
+
+
+.profile {
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+}
+
+.boxProfile {
+    position: absolute;
+    width: 200px;
+    height: 183px;
+    border-radius: 8px;
+    top: 50px;
+    left: -80px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.labelProfile {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.valueProfile {
+    font-size: 12px;
+    font-weight: 300;
+}

@@ -14,3 +14,107 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+.is-invalid-2 {
+  border-bottom: 1px solid red !important;
+}
+
+.hide {
+  transform: scaleY(0) !important;
+}
+
+.show {
+  transform: scaleY(1) !important;
+}
+
+.myTable {
+  width: 100%;
+}
+
+.myTable thead tr {
+  background: transparent;
+}
+
+.myTable thead tr th {
+  color: #576075;
+  font-size: 16px;
+}
+
+.myTable tbody tr {
+  background: white;
+  box-shadow: 0px 3px 6px #00000029;
+  line-height: 3;
+}
+
+.myTable tbody tr:nth-child(even) {
+  background: transparent ;
+  box-shadow: none;
+}
+
+.myTable tbody tr td{
+  font-weight: 300;
+  padding: 1em 0;
+}
+
+.input-custom{
+  border: none !important;
+  border-bottom: 1px solid rgb(221, 220, 220) !important;
+  border-radius: 0 !important;
+  padding: .5em 0 !important;
+}
+
+.input-custom::placeholder{
+  font-size: 11px ;
+}
+
+
+.label-create{
+  font-size: 16px;
+  color: #576075;
+
+}
+
+.action-button{
+  background: #B6E583;
+  width:100px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.action-button >span{
+  margin-right: 10px;
+}
+
+.sub-action{
+  position: absolute;
+  width: 150px;
+  box-shadow: 0px 3px 6px #00000029;
+  background: white;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-view{
+  list-style: none;
+  padding-inline-start: 20px;
+  cursor: pointer;
+}
+
+.menu-view li{
+  color: black;
+  line-height: 2;
+}
+
+.menu-view li:hover{
+  text-decoration: underline;
+}
+
+.icon-menu{
+  margin-right: 15px !important;
+}
