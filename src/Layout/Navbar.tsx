@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Layout.module.css';
+import { useRouter } from 'next/router'
 
 interface INavbar {
     header?: string
@@ -7,6 +8,26 @@ interface INavbar {
 
 const Navbar: React.FunctionComponent<INavbar> = ({ header }) => {
     const [open, setOpen] = useState<boolean>(false);
+    const [data, setData] = useState({
+        username: '',
+        name: "",
+        last_login: ""
+    })
+    const router = useRouter();
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('_token'));
+        setData({
+            username: user.username,
+            name: user.name,
+            last_login: user.last_login
+        })
+    }, [])
+
+    const logout = () => {
+        localStorage.removeItem('_token');
+        router.push('/login')
+    }
 
     return (
         <div className={`d-flex align-items-center ${header ? 'justify-content-between' : 'justify-content-end'}`}>
@@ -25,24 +46,29 @@ const Navbar: React.FunctionComponent<INavbar> = ({ header }) => {
                             Username
                                  </span>
                         <span className={styles.valueProfile}>
-                            Example
-                                </span>
+                            {data.username}
+                        </span>
                     </div>
                     <div className="row mb-3">
                         <span className={styles.labelProfile}>
                             Name
-                                  </span>
+                        </span>
                         <span className={styles.valueProfile}>
-                            Example
-                                 </span>
+                            {data.name}
+                        </span>
                     </div>
-                    <div className="row">
+                    <div className="row mb-2">
                         <span className={styles.labelProfile}>
                             Last Login
                                 </span>
                         <span className={styles.valueProfile}>
-                            2020-06-12 12:00:54
-                                </span>
+                            {data.last_login}
+                        </span>
+                    </div>
+                    <div className="row">
+                        <span className={styles.labelProfile} onClick={logout}>
+                            Logout
+                        </span>
                     </div>
                 </div>
             </div>

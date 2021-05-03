@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
 import Style from '../styles/Login.module.css';
 import Link from 'next/link'
 import { useFormik } from 'formik';
 import { LoginValidation } from '../src/helper/LoginValidation';
+import axios from 'axios';
+
 
 export interface ILogin {
-    email: string,
+    username: string,
     password: string
 }
 
 export const LoginValue: ILogin = {
-    email: "",
+    username: "",
     password: ""
 }
 
@@ -19,7 +22,7 @@ export const LoginValue: ILogin = {
 const Login: React.FunctionComponent = () => {
     const [isLoading, setLoading] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false);
-    // const router = useRouter()
+    const router = useRouter()
 
     const {
         handleSubmit,
@@ -35,13 +38,31 @@ const Login: React.FunctionComponent = () => {
             setIsDisabled(true);
             setLoading(true)
             const data = {
-                email: val.email,
+                username: val.username,
                 password: val.password
             }
 
-            console.log(data);
+            axios.post('https://development.paper.id:3500/test-case/api/v1/login', data)
+                .then(res => {
+                    const data = {
+                        ...res.data,
+                        username: val.username
+                    };
+                    const dataToString = JSON.stringify(data)
+                    localStorage.setItem('_token', dataToString)
+                    router.push('/')
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         }
     })
+
+    useEffect(()=>{
+        if(localStorage.getItem('_token')){
+            router.push('/')
+        }
+    },[])
 
     return (
         <div className={Style.root}>
@@ -68,14 +89,14 @@ const Login: React.FunctionComponent = () => {
                                         <img src="/icon_account_white.svg" alt="" />
                                     </span>
                                     <input
-                                        placeholder="Email"
-                                        type="email"
-                                        className={`${Style.inputWithIcon} ${errors.email && touched.email ? 'is-invalid-2' : ''}`}
-                                        id="email"
-                                        value={values.email}
+                                        placeholder="Username"
+                                        type="text"
+                                        className={`${Style.inputWithIcon} ${errors.username && touched.username ? 'is-invalid-2' : ''}`}
+                                        id="username"
+                                        value={values.username}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        name="email"
+                                        name="username"
                                     />
                                 </div>
                             </div>
@@ -86,15 +107,15 @@ const Login: React.FunctionComponent = () => {
                                     <span className={Style.inputIcon}>
                                         <img src="/icon_lock_white.svg" alt="" />
                                     </span>
-                                    <input 
-                                        placeholder="Password" 
-                                        type="password" 
-                                        id="password" 
+                                    <input
+                                        placeholder="Password"
+                                        type="password"
+                                        id="password"
                                         className={`${Style.inputWithIcon} ${errors.password && touched.password ? 'is-invalid-2' : ''}`}
                                         value={values.password}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        />
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -109,9 +130,9 @@ const Login: React.FunctionComponent = () => {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <button 
-                                type="submit"
-                                className={Style.confirmButton}>
+                                <button
+                                    type="submit"
+                                    className={Style.confirmButton}>
                                     Masuk
                                 </button>
                             </div>
@@ -126,7 +147,3 @@ const Login: React.FunctionComponent = () => {
 };
 
 export default Login;
-
-function useRouter() {
-    throw new Error('Function not implemented.');
-}

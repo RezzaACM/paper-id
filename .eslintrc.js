@@ -23,14 +23,17 @@ module.exports = {
                 'plugin:@typescript-eslint/recommended', // TypeScript rules
                 'plugin:react/recommended', // React rules
                 'plugin:react-hooks/recommended', // React hooks rules
-                'plugin:jsx-a11y/recommended', // Accessibility rules
+                // 'plugin:jsx-a11y/recommended', // Accessibility rules
             ],
             rules: {
                 // We will use TypeScript's types for component props instead
                 'react/prop-types': 'off',
 
+
                 // No need to import React when using Next.js
                 'react/react-in-jsx-scope': 'off',
+
+                '@typescript-eslint/no-explicit-any': 'off',
 
                 // This rule is not compatible with Next.js's <Link /> components
                 'jsx-a11y/anchor-is-valid': 'off',
@@ -40,7 +43,7 @@ module.exports = {
 
                 // I suggest this setting for requiring return types on functions only where useful
                 '@typescript-eslint/explicit-function-return-type': [
-                    'warn',
+                    'off',
                     {
                         allowExpressions: true,
                         allowConciseArrowFunctionExpressionsStartingWithVoid: true,

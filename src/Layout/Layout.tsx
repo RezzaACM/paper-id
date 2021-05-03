@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Style from './Layout.module.css';
 import Link from 'next/link';
 import Navbar from './Navbar';
+import { useRouter } from 'next/router'
 
 interface ILayout {
     children?: any
 }
 
 const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
+    const router = useRouter()
+
+    useEffect(() => {
+        const token = localStorage.getItem('_token');
+        if (!token) {
+            router.push('/login');
+        }
+    })
+
     return (
         <div className={Style.wrapper}>
             <div className={Style.sidebar}>
