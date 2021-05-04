@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Layout.module.css';
 import { useRouter } from 'next/router'
+import moment from 'moment';
 
 interface INavbar {
     header?: string
@@ -18,9 +19,9 @@ const Navbar: React.FunctionComponent<INavbar> = ({ header }) => {
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('_token'));
         setData({
-            username: user.username,
-            name: user.name,
-            last_login: user.last_login
+            username: user?.username,
+            name: user?.name,
+            last_login: user?.last_login
         })
     }, [])
 
@@ -62,7 +63,7 @@ const Navbar: React.FunctionComponent<INavbar> = ({ header }) => {
                             Last Login
                                 </span>
                         <span className={styles.valueProfile}>
-                            {data.last_login}
+                            {moment(data.last_login).format('LLL')}
                         </span>
                     </div>
                     <div className="row">

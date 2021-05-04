@@ -62,7 +62,7 @@ const Login: React.FunctionComponent = () => {
         if(localStorage.getItem('_token')){
             router.push('/')
         }
-    },[])
+    },[router])
 
     return (
         <div className={Style.root}>
